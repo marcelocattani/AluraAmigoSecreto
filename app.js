@@ -3,6 +3,7 @@ let amigos = [];
 
 let campoEntrada = document.querySelector("#amigo");
 let listaAmigos = document.querySelector("#listaAmigos");
+let resultado = document.querySelector("#listaAmigos");
 
 function agregarAmigo() {
   let valor = campoEntrada.value;
@@ -22,4 +23,12 @@ function agregarAmigo() {
 
 function limpiarLista() {
   listaAmigos.innerHTML = "";
+}
+function sortearAmigo() {
+  if (amigos.length == 0) {
+    alert("La lista se encuentra vacia");
+  } else {
+    console.log(Math.floor(Math.random() * amigos.length));
+    resultado.innerHTML = amigos[Math.floor(Math.random() * amigos.length)];
+  }
 }
