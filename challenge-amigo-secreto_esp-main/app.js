@@ -2,7 +2,24 @@
 let amigos = [];
 
 let campoEntrada = document.querySelector("#amigo");
+let listaAmigos = document.querySelector("#listaAmigos");
 
 function agregarAmigo() {
-  console.log(campoEntrada.value);
+  let valor = campoEntrada.value;
+  if (valor != "") {
+    amigos.push(valor);
+    document.querySelector("#amigo").value = "";
+  } else {
+    alert("Por favor, inserte un nombre.");
+  }
+
+  limpiarLista();
+
+  for (i = 0; i < amigos.length; i++) {
+    listaAmigos.innerHTML += `<li>${amigos[i]}</li>`;
+  }
+}
+
+function limpiarLista() {
+  listaAmigos.innerHTML = "";
 }
